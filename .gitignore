@@ -50,7 +50,6 @@ reports/*.html
 
 # Jupyter Notebook
 .ipynb_checkpoints/
-*.ipynb
 
 # OS
 .DS_Store

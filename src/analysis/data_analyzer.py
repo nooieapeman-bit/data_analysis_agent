@@ -44,6 +44,27 @@ class DataAnalyzer:
             logger.error(f"加载数据失败: {e}")
             raise
 
+    def load_from_db(self, connector, sql: str, params=None) -> pd.DataFrame:
+        """
+        从数据库加载数据
+
+        Args:
+            connector: DBConnector实例（需已连接）
+            sql: SQL查询语句
+            params: SQL参数
+
+        Returns:
+            加载的DataFrame
+        """
+        try:
+            self.data = connector.query_df(sql, params=params)
+            logger.info(f"从数据库加载数据成功, 形状: {self.data.shape}")
+            self._collect_metadata()
+            return self.data
+        except Exception as e:
+            logger.error(f"数据库查询失败: {e}")
+            raise
+
     def _collect_metadata(self):
         """收集数据元信息"""
         if self.data is not None:
