@@ -28,4 +28,4 @@ BRAND_DB_MAP = {
 }
 
 # 分析目标表
-TARGET_TABLES = ['user', 'user_device', '`order`', 'subscribe']
+TARGET_TABLES = ['user', 'user_device', '`order`', 'subscribe', 'set_meal', 'order_amount_info', 'cloud_info']
