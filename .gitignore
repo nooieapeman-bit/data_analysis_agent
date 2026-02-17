@@ -63,3 +63,7 @@ htmlcov/
 # Logs
 *.log
 logs/
+# SQLite databases
+data/*.db
+scripts/check_*.py
+scripts/investigate_*.py
