@@ -240,15 +240,38 @@ user表的 `schema` 字段表示用户所属的APP:
 - Nooie在线率: 44.1%, 废弃率: 35.5%
 - OSAIO设备健康度优于Nooie
 
+### 3. 订单与订阅分析 (`03_order_analysis.ipynb`)
+
+**探索Notebook**: `03_order_exploration.ipynb` (表结构探索)
+
+**涉及表**: `order`, `subscribe`, `set_meal`, `order_amount_info`, `cloud_info`
+
+**分析维度:**
+- 订单趋势（月度/周度订单量、日均增长率）
+- 订阅类型分布（Monthly/Annual/Trial等）
+- 试用 vs 付费占比
+- 试用转化率（试用用户后续购买付费订阅的比例）
+- 收入分析（月度收入、净收入、ARPU、平均客单价）
+- 币种分布
+- 订阅周期偏好趋势（月订阅 vs 年订阅）
+- 多设备订阅（support_dev_num > 1）
+- 云服务时长分析（cloud_info）
+- 设备订阅覆盖率（有活跃订阅的设备占比）
+- 品牌综合对比
+
+**关键JOIN关系:**
+- `order.subscribe_id` → `subscribe.subscribe_id`
+- `order.product_id` → `set_meal.code`
+- `order.id` → `order_amount_info.order_int_id`
+- `order.order_id` → `cloud_info.order_id`
+
+**核心发现:** 待运行notebook后补充
+
 ---
 
 ## 待完成的分析
 
-### 3. 订单分析 (`order` 表)
-- 待探索表结构
-
-### 4. 订阅分析 (`subscribe` 表)
-- 待探索表结构
+（暂无）
 
 ---
 
@@ -272,4 +295,4 @@ user表的 `schema` 字段表示用户所属的APP:
 
 ---
 
-最后更新: 2026-02-16
+最后更新: 2026-02-17
